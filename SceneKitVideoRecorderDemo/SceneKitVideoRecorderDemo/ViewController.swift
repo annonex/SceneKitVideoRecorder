@@ -33,7 +33,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     // Set the scene to the view
     sceneView.scene = scene
 
-    recorder = try! SceneKitVideoRecorder(withARSCNView: sceneView)
+    // this example don't use audio
+    var options = SceneKitVideoRecorder.Options.default
+    options.useMicrophone = false
+    recorder = try! SceneKitVideoRecorder(scene: sceneView, options: options, setupAudio: false)
   }
 
   override func viewWillAppear(_ animated: Bool) {

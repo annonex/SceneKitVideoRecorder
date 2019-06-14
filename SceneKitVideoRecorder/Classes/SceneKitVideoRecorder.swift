@@ -141,6 +141,10 @@ public class SceneKitVideoRecorder: NSObject, AVAudioRecorderDelegate {
   }
 
   private func startRecordingAudio() {
+    if useAudio == false {
+        return
+    }
+
     let audioUrl = self.options.audioOnlyUrl
 
     let settings = self.options.assetWriterAudioInputSettings
