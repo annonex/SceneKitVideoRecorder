@@ -287,7 +287,10 @@ public class SceneKitVideoRecorder: NSObject, AVAudioRecorderDelegate {
     autoreleasepool {
 
       let time = CACurrentMediaTime()
-      let image = renderer.snapshot(atTime: time, with: self.options.videoSize, antialiasingMode: self.options.antialiasingMode)
+      var image = renderer.snapshot(atTime: time, with: self.options.videoSize, antialiasingMode: self.options.antialiasingMode)
+      if self.options.horizontallyFlipped {
+        image = image.withHorizontallyFlippedOrientation()
+      }
 
       updateFrameHandler?(image)
 

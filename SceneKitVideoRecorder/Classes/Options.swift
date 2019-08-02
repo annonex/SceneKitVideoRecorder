@@ -21,6 +21,7 @@ extension SceneKitVideoRecorder {
     public var deleteFileIfExists: Bool
     public var useMicrophone: Bool
     public var antialiasingMode: SCNAntialiasingMode
+    public var horizontallyFlipped: Bool
 
     public static var `default`: Options {
       return Options(timeScale: 1000,
@@ -33,7 +34,8 @@ extension SceneKitVideoRecorder {
                      codec: AVVideoCodecH264,
                      deleteFileIfExists: true,
                      useMicrophone: true,
-                     antialiasingMode: .multisampling4X)
+                     antialiasingMode: .multisampling4X,
+                     horizontallyFlipped: false)
     }
     
     var assetWriterVideoInputSettings: [String : Any] {

@@ -36,6 +36,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     // this example don't use audio
     var options = SceneKitVideoRecorder.Options.default
     options.useMicrophone = false
+    options.horizontallyFlipped = true
     recorder = try! SceneKitVideoRecorder(scene: sceneView, options: options, setupAudio: false)
   }
 
